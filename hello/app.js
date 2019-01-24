@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var favicon = require('serve-favicon')
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
@@ -26,6 +27,7 @@ app.use(express.cookieParser('Intro HCI secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // development only
 if ('development' == app.get('env')) {
